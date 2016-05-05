@@ -24,6 +24,12 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 public class MainActivity extends AppCompatActivity {
+    @Bind(R.id.timeLabel) TextView mTimeLabel;
+    @Bind(R.id.temperatureLabel) TextView mTemperatureLabel;
+    @Bind(R.id.humidityValue) TextView mHumidityValue;
+    @Bind(R.id.precipValue) TextView mPrecipValue;
+    @Bind(R.id.summaryLabel) TextView mSummaryLabel;
+    @Bind(R.id.iconImageView) ImageView mIconImageView;
 
     public  static final String TAG=MainActivity.class.getSimpleName();
     private CurrentWheater mCurrentWheater;
@@ -33,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+         ButterKnife.bind(this);
+
         double latitude=37.8267;
         double longitude= -122.423;
 
@@ -87,8 +95,11 @@ if(IsNetworkAvailable()) {
         currentWheater.setPercipChance(currently.getDouble("precipProbability"));
         currentWheater.setSummary(currently.getString("summary"));
         currentWheater.getTemperature(currently.getDouble("temperature"));
+        currentWheater.setmTimeZone(timezone);
 
-        Log.i(TAG, "From JSON:" + timezone);
+        Log.d(TAG,currentWheater.getFormattedTime());
+
+
         return  currentWheater;
     }
 
