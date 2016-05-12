@@ -10,7 +10,7 @@ import java.util.TimeZone;
 public class CurrentWheater {
     private String mIcon;
     private long mTime;
-    private double mTemperature;
+    private int mTemperature;
     private double mHumidity;
     private double mPercipChance;
     private String mSummary;
@@ -88,11 +88,11 @@ public class CurrentWheater {
 
     }
 
-    public double getTemperature(double temperature) {
+    public int getTemperature() {
         return mTemperature;
     }
 
-    public void setTemerature(double temperature) {
+    public void setTemperature(int temperature) {
         mTemperature = temperature;
     }
 
