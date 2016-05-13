@@ -16,7 +16,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="100"
+        android:text="--"
         android:id="@+id/TempLabel"
         android:textColor="#ffffff"
         android:textSize="150sp"
@@ -36,7 +36,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="In 5 Oclock it will be:"
+        android:text="..."
         android:id="@+id/timeLabel1"
         android:layout_alignTop="@+id/TempLabel"
         android:layout_centerHorizontal="true"
@@ -46,7 +46,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Alctraz island, California"
+        android:text="Churgin 14 Ramat Gan"
         android:id="@+id/LocationLabel"
         android:layout_above="@+id/degreeImageView"
         android:layout_centerHorizontal="true"
@@ -57,11 +57,11 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/iconimageView"
-       android:src="@drawable/cloudy_night"
+        android:src="@drawable/cloudy_night"
         android:layout_alignBottom="@+id/LocationLabel"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:id="@+id/iconImage"/>
 
     <LinearLayout
         android:orientation="horizontal"
@@ -82,15 +82,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="HUMIDITY"
-                android:id="@+id/HUMIDITY"
+                android:id="@+id/Text"
                 android:textColor="#80ffffff"
                 android:gravity="center_horizontal" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="0.88"
-                android:id="@+id/textView"
+                android:text="--"
+                android:id="@+id/HUMIDITY"
                 android:textColor="#ffffff"
                 android:textIsSelectable="false"
                 android:textSize="24sp"
@@ -114,7 +114,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="100%"
+                android:text="--"
                 android:id="@+id/PercipLevel"
                 android:textColor="#ffffff"
                 android:textSize="24sp"
@@ -142,5 +142,24 @@
         android:layout_alignBottom="@+id/timeLabel1"
         android:layout_alignRight="@+id/degreeImageView"
         android:layout_alignEnd="@+id/degreeImageView"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/RefreshImageView"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/refresh"
+        android:onClick="getForcastButton"
+        android:nestedScrollingEnabled="true"/>
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/progressBar2"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/RefreshImageView"
+        android:indeterminate="false"/>
 
 </RelativeLayout>
