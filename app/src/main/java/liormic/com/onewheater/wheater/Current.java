@@ -1,13 +1,15 @@
-package liormic.com.onewheater;
+package liormic.com.onewheater.wheater;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.TimeZone;
 
+import liormic.com.onewheater.R;
+
 /**
  * Created by lior on 3/31/2016.
  */
-public class CurrentWheater {
+public class Current {
     private String mIcon;
     private long mTime;
     private int mTemperature;
@@ -36,7 +38,7 @@ public class CurrentWheater {
 
 
     public int getIconId(){
-        int iconId=R.drawable.clear_day;
+        int iconId= R.drawable.clear_day;
         if (mIcon.equals("clear-day")) {
             iconId = R.drawable.clear_day;
         }

@@ -1,10 +1,12 @@
-package liormic.com.onewheater;
+package liormic.com.onewheater.UI;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.Context;
 import android.os.Bundle;
+
+import liormic.com.onewheater.R;
 
 /**
  * Created by lior on 3/30/2016.

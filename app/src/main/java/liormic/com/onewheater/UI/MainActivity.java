@@ -1,4 +1,4 @@
-package liormic.com.onewheater;
+package liormic.com.onewheater.UI;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
@@ -19,6 +19,9 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 
+import liormic.com.onewheater.R;
+import liormic.com.onewheater.wheater.Current;
+import liormic.com.onewheater.wheater.Forecast;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.OkHttpClient;
@@ -29,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     public static final String TAG = MainActivity.class.getSimpleName();
-    private CurrentWheater mCurrentWheater;
+    private Forecast mForecast;
     TextView mTemp;
     TextView mPercip;
     TextView mTime;
@@ -108,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
                         String jsonData = response.body().string();
                         Log.v(TAG, jsonData);
                         if (response.isSuccessful()) {
-                            mCurrentWheater = getCurrentDetails(jsonData);
+                            mForecast = parseForecastDetails(jsonData);
                             runOnUiThread(new Runnable() {
                                 @Override
                                 public void run() {
@@ -148,33 +151,40 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void updateDisplay() {
+        Current current = mForecast.getCurrent();
 
-        mTemp.setText(formatFartoCel(mCurrentWheater.getTemperature())+"");
-        mTime.setText("At " + mCurrentWheater.getFormattedTime()+" it will be");
-        mHumid.setText(mCurrentWheater.getHumidity()+"");
-        mPercip.setText(mCurrentWheater.getPercipChance()+"");
-        mSumm.setText(mCurrentWheater.getSummary());
-        Drawable drawable = getResources().getDrawable(mCurrentWheater.getIconId());
+        mTemp.setText(formatFartoCel(current.getTemperature())+"");
+        mTime.setText("At " + current.getFormattedTime()+" it will be");
+        mHumid.setText(current.getHumidity()+"");
+        mPercip.setText(current.getPercipChance()+"");
+        mSumm.setText(current.getSummary());
+        Drawable drawable = getResources().getDrawable(current.getIconId());
         mIcon.setImageDrawable(drawable);
     }
+    private Forecast parseForecastDetails(String jsonData) throws JSONException{
+        Forecast forecast = new Forecast();
+        forecast.setCurrent(getCurrentDetails(jsonData));
 
-    private CurrentWheater getCurrentDetails(String jsonData)throws JSONException{
+        return forecast;
+
+    }
+    private Current getCurrentDetails(String jsonData)throws JSONException{
         JSONObject forecast= new JSONObject((jsonData));
         String timezone =forecast.getString("timezone");
         JSONObject currently = forecast.getJSONObject("currently");
-        CurrentWheater currentWheater = new CurrentWheater();
-        currentWheater.setHumidity(currently.getDouble("humidity"));
-        currentWheater.setTime(currently.getLong("time"));
-        currentWheater.setIcon(currently.getString("icon"));
-        currentWheater.setPercipChance(currently.getDouble("precipProbability"));
-        currentWheater.setSummary(currently.getString("summary"));
-        currentWheater.setTemperature(currently.getInt("temperature"));
-        currentWheater.setmTimeZone(timezone);
+        Current current = new Current();
+        current.setHumidity(currently.getDouble("humidity"));
+        current.setTime(currently.getLong("time"));
+        current.setIcon(currently.getString("icon"));
+        current.setPercipChance(currently.getDouble("precipProbability"));
+        current.setSummary(currently.getString("summary"));
+        current.setTemperature(currently.getInt("temperature"));
+        current.setmTimeZone(timezone);
 
-        Log.d(TAG,currentWheater.getFormattedTime());
+        Log.d(TAG, current.getFormattedTime());
 
 
-        return  currentWheater;
+        return current;
     }
 
     private int formatFartoCel(int temp){
