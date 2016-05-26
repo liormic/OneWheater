@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:background="#ffaa00"
+    >
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/circle_image_view"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:src="@drawable/bg_temperature"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/iconimageview"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/circle_image_view"
+        android:layout_toEndOf="@+id/circle_image_view"
+        android:src="@drawable/clear_day"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/DayNameLabel"
+        android:layout_alignBottom="@+id/iconimageview"
+        android:layout_toRightOf="@+id/iconimageview"
+        android:layout_toEndOf="@+id/iconimageview"
+        android:textColor="#ffffffff"
+        android:textSize="20sp"
+        tools:text="Monday"
+        />
+
+</RelativeLayout>
