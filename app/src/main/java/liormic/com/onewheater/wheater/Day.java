@@ -1,5 +1,10 @@
 package liormic.com.onewheater.wheater;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.TimeZone;
+import java.util.logging.SimpleFormatter;
+
 /**
  * Created by lior on 5/15/2016.
  */
@@ -21,7 +26,7 @@ public class Day {
     }
 
     public double getTemperatureMax() {
-        return mTemperatureMax;
+        return (int)Math.round(mTemperatureMax);
     }
 
     public void setTemperatureMax(double temperatureMax) {
@@ -43,6 +48,24 @@ public class Day {
     public void setTimezone(String timezone) {
         mTimezone = timezone;
     }
+
+
+    public int getIconId(){
+
+        return Forecast.getIconId(mIcon);
+    }
+
+
+    public String getDayOfTheWeek(){
+       SimpleDateFormat formatter = new SimpleDateFormat("EEEE");
+        formatter.setTimeZone(TimeZone.getTimeZone(mTimezone));
+        Date dateTime = new Date(mTime*1000);
+        return formatter.format(dateTime);
+
+
+    }
+
+
 
     private long mTime;
     private String mSummary;

@@ -1,6 +1,7 @@
 package liormic.com.onewheater.UI;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -44,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
     ImageView mIcon;
     ImageView mRefresh;
     ProgressBar mProgressBar;
-
+    public static final String DAILY_FORECAST = "DAILY_FORECAST";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -264,6 +265,12 @@ return  hours;
 
     public void getForcastButton(View view) {
         getForcast();
+    }
+
+    public void StartDailyActivity(View view) {
+        Intent intent=new Intent(this,DailyForecastActivity.class);
+        intent.putExtra(DAILY_FORECAST,mForecast.getDailyForecast());
+        startActivity(intent);
     }
 }
 

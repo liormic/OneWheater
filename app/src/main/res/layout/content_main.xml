@@ -127,12 +127,12 @@
         android:layout_height="wrap_content"
         android:text="Stormy with chance of meatballs"
         android:id="@+id/Summary"
-        android:layout_below="@+id/linearLayout"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
         android:textColor="#ffffff"
         android:textSize="18dp"
-        android:gravity="center_horizontal" />
+        android:gravity="center_horizontal"
+        android:layout_below="@+id/linearLayout"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
 
     <ProgressBar
         style="?android:attr/progressBarStyleHorizontal"
@@ -161,5 +161,43 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/RefreshImageView"
         android:indeterminate="false"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Summary"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="7 DAY"
+            android:id="@+id/button"
+            android:layout_below="@+id/Summary"
+            android:layout_alignLeft="@+id/timeLabel1"
+            android:layout_alignStart="@+id/timeLabel1"
+            android:layout_alignRight="@+id/LocationLabel"
+            android:layout_alignEnd="@+id/LocationLabel"
+            android:nestedScrollingEnabled="false"
+            android:onClick="StartDailyActivity"
+            android:layout_weight="1"
+            android:background="@android:color/holo_orange_light"
+            android:textColor="#ffffffff"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hourly"
+            android:id="@+id/Hourlybtn"
+            android:layout_alignTop="@+id/button"
+            android:layout_toLeftOf="@+id/timeLabel1"
+            android:layout_alignLeft="@+id/LocationLabel"
+            android:layout_alignStart="@+id/LocationLabel"
+            android:layout_weight="1"
+            android:background="@android:color/holo_orange_light"
+            android:textColor="#ffffffff"/>
+    </LinearLayout>
 
 </RelativeLayout>

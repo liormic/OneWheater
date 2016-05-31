@@ -2,9 +2,13 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
+              android:paddingLeft="64dp"
+                android:paddingRight="32dp"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
                 android:layout_height="wrap_content"
                 tools:background="#ffaa00"
-    >
+                android:id="@+id/relative">
 
     <ImageView
         android:layout_width="wrap_content"
@@ -13,6 +17,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
+        android:paddingLeft="10dp"
         android:src="@drawable/bg_temperature"/>
 
     <ImageView
@@ -20,6 +25,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/iconimageview"
         android:layout_centerVertical="true"
+        android:paddingLeft="10dp"
         android:layout_toRightOf="@+id/circle_image_view"
         android:layout_toEndOf="@+id/circle_image_view"
         android:src="@drawable/clear_day"/>
@@ -29,12 +35,28 @@
         android:layout_height="wrap_content"
         android:text="New Text"
         android:id="@+id/DayNameLabel"
+        android:layout_centerVertical="true"
         android:layout_alignBottom="@+id/iconimageview"
         android:layout_toRightOf="@+id/iconimageview"
         android:layout_toEndOf="@+id/iconimageview"
         android:textColor="#ffffffff"
+        android:paddingLeft="10dp"
         android:textSize="20sp"
         tools:text="Monday"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="100"
+        android:id="@+id/tempLabel"
+        android:layout_alignBottom="@+id/circle_image_view"
+        android:paddingLeft="10dp"
+       android:layout_alignTop="@+id/circle_image_view"
+        android:layout_alignLeft="@+id/circle_image_view"
+        android:layout_alignRight="@+id/circle_image_view"
+        android:gravity="center"
+        android:textColor="#f25019"
         />
 
 </RelativeLayout>
