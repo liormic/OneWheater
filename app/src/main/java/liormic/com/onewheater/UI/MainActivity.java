@@ -21,6 +21,7 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 
+import butterknife.OnClick;
 import liormic.com.onewheater.R;
 import liormic.com.onewheater.wheater.Current;
 import liormic.com.onewheater.wheater.Day;
@@ -267,6 +268,8 @@ return  hours;
         getForcast();
     }
 
+
+    @OnClick(R.id.dailyButton)
     public void StartDailyActivity(View view) {
         Intent intent=new Intent(this,DailyForecastActivity.class);
         intent.putExtra(DAILY_FORECAST,mForecast.getDailyForecast());
