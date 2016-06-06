@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
     ImageView mRefresh;
     ProgressBar mProgressBar;
     public static final String DAILY_FORECAST = "DAILY_FORECAST";
+    public static final String HOURLY_FORECAST = "HOURLY_FORECAST";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -190,7 +191,7 @@ public class MainActivity extends AppCompatActivity {
 
             Day day = new Day();
             day.setSummary(jsonDay.getString("summary"));
-            day.setTemperatureMax(jsonDay.getDouble("temperature"));
+            day.setTemperatureMax(jsonDay.getDouble("temperatureMax"));
             day.setIcon(jsonDay.getString("icon"));
             day.setTime(jsonDay.getLong("time"));
             day.setTimezone(timezone);
@@ -275,6 +276,12 @@ return  hours;
         intent.putExtra(DAILY_FORECAST,mForecast.getDailyForecast());
         startActivity(intent);
     }
+   @OnClick(R.id.Hourlybtn)
+    public void StartHourlyActivity(View view){
+       Intent intent = new Intent(this,HourlyForecastActivity.class);
+       intent.putExtra(HOURLY_FORECAST,mForecast.getHourlyForecast());
+   }
+
 }
 
 
