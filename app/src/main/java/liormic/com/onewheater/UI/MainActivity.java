@@ -280,6 +280,7 @@ return  hours;
     public void StartHourlyActivity(View view){
        Intent intent = new Intent(this,HourlyForecastActivity.class);
        intent.putExtra(HOURLY_FORECAST,mForecast.getHourlyForecast());
+       startActivity(intent);
    }
 
 }

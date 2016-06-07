@@ -173,31 +173,32 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="7 DAY"
-            android:id="@+id/button"
+            android:text="7 Days"
+            android:id="@+id/dailyButton"
             android:layout_below="@+id/Summary"
             android:layout_alignLeft="@+id/timeLabel1"
             android:layout_alignStart="@+id/timeLabel1"
             android:layout_alignRight="@+id/LocationLabel"
             android:layout_alignEnd="@+id/LocationLabel"
             android:nestedScrollingEnabled="false"
-            android:onClick="StartDailyActivity"
             android:layout_weight="1"
             android:background="@android:color/holo_orange_light"
-            android:textColor="#ffffffff"/>
+            android:textColor="#ffffffff"
+            android:onClick="StartDailyActivity"/>
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Hourly"
             android:id="@+id/Hourlybtn"
-            android:layout_alignTop="@+id/button"
+            android:layout_alignTop="@+id/dailyButton"
             android:layout_toLeftOf="@+id/timeLabel1"
             android:layout_alignLeft="@+id/LocationLabel"
             android:layout_alignStart="@+id/LocationLabel"
             android:layout_weight="1"
             android:background="@android:color/holo_orange_light"
-            android:textColor="#ffffffff"/>
+            android:textColor="#ffffffff"
+            android:onClick="StartHourlyActivity"/>
     </LinearLayout>
 
 </RelativeLayout>
