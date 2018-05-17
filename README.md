@@ -1,2 +1,2 @@
 # OneWheater
-A simple wheater application based on threehouse lessons.
+A simple wheater application based on Treehouse lessons.
